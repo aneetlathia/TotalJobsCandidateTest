@@ -1,0 +1,29 @@
+﻿<div>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-11 col-md-offset-1">
+                <h2>{{questionnaire.QuestionnaireTitle}}</h2>
+            </div>
+        </div>
+    </div>
+
+    <ng-form name="questionnaireForm">
+        <div ng-repeat="question in questionnaire.QuestionsText track by $index" class="row">
+            <div class="col-md-10 col-md-offset-2">
+                <p>
+                    <div>{{question}}</div>
+                    <div><input type="text" ng-model="questionnaire.AnswersText[$index]"></div>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-2">
+                <p>
+                    <div>
+                        <button ng-click="sendAnswers()">Done</button>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </ng-form>
+</div>

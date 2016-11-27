@@ -1,0 +1,31 @@
+﻿@model PairingTest.Web.Models.QuestionnaireViewModel
+<html>
+<head>
+    <title>@Model.QuestionnaireTitle</title>
+</head>
+<body>
+    <h1>@Model.QuestionnaireTitle</h1>
+
+    @using (Html.BeginForm("ProcessAnswers", "Questionnaire"))
+    {
+        if (Model.QuestionsText != null)
+        {
+            <ol>
+            @for (int indx = 0; indx < Model.QuestionsText.Count; indx++)
+            {
+                <li>
+                    <p>
+                        @Model.QuestionsText[indx]
+                        <br />
+                        @Html.TextBoxFor(m => Model.AnswersText[indx])
+                    </p>
+                </li>
+            }
+            </ol>
+
+            <p><input type="submit" value="Done" /></p>
+        }
+    }
+
+</body>
+</html>
